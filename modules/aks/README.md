@@ -5,15 +5,8 @@ This is the documentation for eks module.
 ## Summary
 
 This module creates following resources -
-- eks cluster in provided subnets with public and private access endpoints
-- oidc provider for IRSA
-- [EKS Managed AddOns](https://docs.aws.amazon.com/eks/latest/userguide/eks-add-ons.html)
-  - vpc-cni
-  - coredns
-  - kube-proxy
-- eks managed node group named `worker` in the provided subnets, creates SPOT instances of type `t3.large`
-
-This module only requires you to specify eks cluster name, k8s version, vpc id, eks cluster subnet ids and eks managed node groups subnet ids. All the other variables have default values. If the default values are used, this module creates all the resources mentioned above. Please read the documentation below to know details about the variables accepted by this module.
+- aks cluster with a default system nodepool
+- optionally you can create worker nodepools
 
 ## Requirements
 

@@ -98,7 +98,7 @@ aws s3api create-bucket --bucket "your-bucket-name" --region "your-aws-region"
    
 ```shell
 # tfstate file name
-tfstate_file_name="<some name e.g. eks-1111111111>"
+tfstate_file_name="<some name e.g. aks-1111111111>"
 
 # tfstate s3 bucket name, this will have the tfstate file which you can use for further runs of this terraform module
 # for example to upgrade k8s version or add new node pools etc.. The bucket name must be unique as s3 is a global service. Terraform will create the s3 bucket if it doesn't exist

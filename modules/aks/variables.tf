@@ -27,7 +27,7 @@ variable "dns_prefix" {
 
 variable "az_subnet_id" {
   type        = string
-  description = "azure subnet id where the nodepools and eks cluster need to be created"
+  description = "azure subnet id where the nodepools and aks cluster need to be created"
 }
 
 variable "network_plugin" {

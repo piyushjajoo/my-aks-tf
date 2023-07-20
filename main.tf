@@ -16,7 +16,7 @@ provider "azurerm" {
   features {}
 }
 
-# invoke cluster module which creates resource group, vnet, subnets and eks cluter with a default nodepool
+# invoke cluster module which creates resource group, vnet, subnets and aks cluter with a default nodepool
 # by default cluster module also creates a nodepool named worker
 module "cluster" {
   source = "./cluster"

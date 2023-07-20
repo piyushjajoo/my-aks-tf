@@ -34,5 +34,4 @@ resource "azurerm_subnet" "az_subnet" {
   virtual_network_name = azurerm_virtual_network.az_vnet.name
   address_prefixes     = var.subnet_address_prefix
   service_endpoints    = var.service_endpoints
-  tags                 = merge(var.tags, var.additional_subnet_tags)
 }

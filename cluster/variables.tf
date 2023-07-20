@@ -6,7 +6,7 @@ variable "cluster_name" {
 variable "k8s_version" {
   type        = string
   description = "kubernetes version"
-  default     = "1.27"
+  default     = "1.26"
 }
 
 variable "region" {
@@ -17,7 +17,7 @@ variable "region" {
 variable "address_space" {
   type        = list(string)
   description = "The address space that is used the virtual network. You can supply more than one address space but for our module implementation we are limiting it to 1 address space only."
-  default     = ["10.0.0.0/16"]
+  default     = ["10.1.0.0/16"]
 }
 
 variable "nodepools" {

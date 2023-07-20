@@ -6,7 +6,7 @@ variable "cluster_name" {
 variable "k8s_version" {
   type        = string
   description = "kubernetes version"
-  default     = "1.27"
+  default     = "1.26"
 }
 
 variable "region" {
@@ -33,7 +33,7 @@ variable "az_subnet_id" {
 variable "network_plugin" {
   type        = string
   description = "Network plugin to use for networking. Currently supported values are azure, kubenet and none. Changing this forces a new resource to be created."
-  default     = "none"
+  default     = "azure"
 }
 
 variable "aks_tags" {

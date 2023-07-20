@@ -5,7 +5,7 @@ output "cluster_id" {
 
 output "client_certificate" {
   description = "Base64 encoded public certificate used by clients to authenticate to the Kubernetes cluster."
-  value       = module.aks_with_node_group.k8s.client_certificate
+  value       = module.aks_with_node_group.client_certificate
   sensitive   = true
 }
 
@@ -33,6 +33,11 @@ output "node_resource_group_id" {
 output "az_rg_id" {
   description = "The ID of the resource group"
   value       = module.vnet_with_subnets.az_rg_id
+}
+
+output "az_rg_name" {
+  description = "The name of the resource group"
+  value       = module.vnet_with_subnets.az_rg_name
 }
 
 output "az_vnet_id" {

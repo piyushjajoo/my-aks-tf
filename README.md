@@ -73,7 +73,20 @@ In [outputs.tf](./outputs.tf) tf file you will see declaration of any output var
 
 Execute all the commands below from `my-aks-tf` root where the above explained files are -
 
-1. Make sure [az cli](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) is installed and configured to talk to the azure account.
+1. Make sure [az cli](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) is installed and configured to talk to the azure account. 
+
+```shell
+az login
+```
+
+2. Set the environment variables below -
+
+```shell
+export ARM_CLIENT_ID="The Client ID which should be used."
+export ARM_CLIENT_SECRET="The Client Secret which should be used."
+export ARM_SUBSCRIPTION_ID="The Subscription ID which should be used."
+export ARM_TENANT_ID="The Tenant ID which should be used."
+```
 
 2. Make sure the s3 bucket to store the tfstate file exists, if not please create. Following is an example how you can use aws cli to create the s3 bucket.
 
@@ -124,10 +137,10 @@ In this section we will show how to connect to aks cluster and install `nginx` h
 1. Retrieve kubeconfig using az cli, assuming you have configured the az cli properly to point to the azure account which has the aks cluster. Please see [azure cli documentation](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) for configuration details.
 
 ```shell
-az aks get-credentials --resource-group "<my resource group name>" --name "<my aks cluster name>"
+az aks get-credentials --resource-group "<my resource group name>" --name "<my aks cluster name>" --subscription "<subscription where the resources are created>"
 
 # as per the sample.tfvars parameters
-az aks get-credentials --resource-group "platformwale" --name "platformwale"
+az aks get-credentials --resource-group "platformwale" --name "platformwale" --subscription "xxxxxx"
 ```
 
 2. You can check if you are pointing to the right kubernetes cluster by running following kubectl command
@@ -143,7 +156,7 @@ helm repo add bitnami https://charts.bitnami.com/bitnami
 helm install -n default nginx bitnami/nginx
 ```
 
-4. Check if all the pods are scheduled and running. Also validate that the load balancer is created, you can copy paste the `EXTERNAL-IP` and put it in browser, you should see the `Welcome to nginx!` page as shown in the screenshot below.
+4. Check if all the pods are scheduled and running. Also validate that the load balancer is created, you can copy paste the `EXTERNAL-IP` and put it in browser (`http://<EXTERNAL-IP>:80`), you should see the `Welcome to nginx!` page as shown in the screenshot below.
 
 ```shell
 kubectl get pods -n default
@@ -156,8 +169,8 @@ NAME                     READY   STATUS    RESTARTS   AGE
 nginx-7c8ff57685-ck9pn   1/1     Running   0          3m31s
 
 $ kubectl get svc -n default nginx
-NAME    TYPE           CLUSTER-IP       EXTERNAL-IP                                                              PORT(S)        AGE
-nginx   LoadBalancer   172.20.214.161   a90947031083b48b9b61849f22cdceda-410225407.us-east-2.elb.amazonaws.com   80:32414/TCP   2m59s
+NAME    TYPE           CLUSTER-IP   EXTERNAL-IP    PORT(S)        AGE
+nginx   LoadBalancer   10.0.80.50   XX.XXX.XXX.X   80:30149/TCP   77s
 ```
 
 ![Welcome to nginx!!](./images/welcome-to-nginx.png)
@@ -208,7 +221,7 @@ No resources.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_cluster_name"></a> [cluster\_name](#input\_cluster\_name) | aks cluster name, same name is used for resource group, vnet and subnets | `string` | `"platformwale"` | no |
-| <a name="input_k8s_version"></a> [k8s\_version](#input\_k8s\_version) | k8s version | `string` | `"1.27"` | no |
+| <a name="input_k8s_version"></a> [k8s\_version](#input\_k8s\_version) | k8s version | `string` | `"1.26"` | no |
 | <a name="input_region"></a> [region](#input\_region) | aks region where the resources are being created | `string` | n/a | yes |
 
 ### Outputs

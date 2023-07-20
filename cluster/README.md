@@ -34,9 +34,9 @@ No resources.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_address_space"></a> [address\_space](#input\_address\_space) | The address space that is used the virtual network. You can supply more than one address space but for our module implementation we are limiting it to 1 address space only. | `list(string)` | <pre>[<br>  "10.0.0.0/16"<br>]</pre> | no |
+| <a name="input_address_space"></a> [address\_space](#input\_address\_space) | The address space that is used the virtual network. You can supply more than one address space but for our module implementation we are limiting it to 1 address space only. | `list(string)` | <pre>[<br>  "10.1.0.0/16"<br>]</pre> | no |
 | <a name="input_cluster_name"></a> [cluster\_name](#input\_cluster\_name) | resource group, vnet, subnet and aks cluster name | `string` | n/a | yes |
-| <a name="input_k8s_version"></a> [k8s\_version](#input\_k8s\_version) | kubernetes version | `string` | `"1.27"` | no |
+| <a name="input_k8s_version"></a> [k8s\_version](#input\_k8s\_version) | kubernetes version | `string` | `"1.26"` | no |
 | <a name="input_nodepools"></a> [nodepools](#input\_nodepools) | Nodepools for the Kubernetes cluster | <pre>map(object({<br>    name                  = string<br>    zones                 = list(number)<br>    vm_size               = string<br>    min_count             = number<br>    max_count             = number<br>    enable_auto_scaling   = bool<br>    enable_node_public_ip = bool<br>    tags                  = map(string)<br>    node_labels           = map(string)<br>  }))</pre> | <pre>{<br>  "worker": {<br>    "enable_auto_scaling": true,<br>    "enable_node_public_ip": true,<br>    "max_count": 100,<br>    "min_count": 1,<br>    "name": "worker",<br>    "node_labels": {<br>      "worker-name": "worker"<br>    },<br>    "tags": {<br>      "worker_name": "worker"<br>    },<br>    "vm_size": "Standard_D2_v2",<br>    "zones": [<br>      1,<br>      2,<br>      3<br>    ]<br>  }<br>}</pre> | no |
 | <a name="input_region"></a> [region](#input\_region) | azure region where the aks cluster must be created, this region should match where you have created the resource group, vnet and subnet | `string` | n/a | yes |
 
@@ -45,6 +45,7 @@ No resources.
 | Name | Description |
 |------|-------------|
 | <a name="output_az_rg_id"></a> [az\_rg\_id](#output\_az\_rg\_id) | The ID of the resource group |
+| <a name="output_az_rg_name"></a> [az\_rg\_name](#output\_az\_rg\_name) | The name of the resource group |
 | <a name="output_az_subnet_id"></a> [az\_subnet\_id](#output\_az\_subnet\_id) | The ID of the subnet |
 | <a name="output_az_vnet_id"></a> [az\_vnet\_id](#output\_az\_vnet\_id) | The ID of the vnet |
 | <a name="output_client_certificate"></a> [client\_certificate](#output\_client\_certificate) | Base64 encoded public certificate used by clients to authenticate to the Kubernetes cluster. |

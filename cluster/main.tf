@@ -24,6 +24,7 @@ module "aks_with_node_group" {
   k8s_version         = var.k8s_version
   region              = var.region
   dns_prefix          = var.cluster_name
-  resource_group_name = module.vnet_with_subnets.az_rg_id
+  resource_group_name = module.vnet_with_subnets.az_rg_name
+  az_subnet_id        = module.vnet_with_subnets.az_subnet_id
   nodepools           = var.nodepools
 }

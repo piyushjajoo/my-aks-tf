@@ -1,6 +1,6 @@
-# eks module
+# aks module
 
-This is the documentation for eks module.
+This is the documentation for aks module.
 
 ## Summary
 

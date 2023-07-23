@@ -1,4 +1,4 @@
-# aws modules
+# aks modules
 
 ## Summary
 
@@ -9,4 +9,4 @@ This is the top level readme for links to aws modules. The documentation of each
 | Module Name | Documentation Link |
 | ----------- | ------------------ |
 | AKS | [README](./aks/README.md) |
-| VPC (vnet) And Subnets | [README](./vnet_and_subnets/README.md) |
+| VNET And Subnets | [README](./vnet_and_subnets/README.md) |

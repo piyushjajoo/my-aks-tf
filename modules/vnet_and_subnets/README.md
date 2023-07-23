@@ -1,6 +1,6 @@
-# vpc (vnet) and subnet module
+# vnet and subnet module
 
-This is the documentation for vpc (vnet) and subnet module.
+This is the documentation for vnet and subnet module.
 
 ## Summary
 

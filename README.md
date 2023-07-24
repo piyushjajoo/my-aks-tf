@@ -25,7 +25,7 @@ This repository has a top level terraform module [cluster](./cluster/README.md) 
 
 `cluster` is the top level module which is scaffold over `vnet_and_subnets` and `aks` modules. 
 
-Essentially you can imagine that your infrastructure team is building APIs by building opinionated `vnet_and_subnets` and `aks` modules in different repository. And your team's Platform team building `cluster` module which makes use of these APIs. And top level `main.tf` file invoking `cluster` module, this can be written by your developer team member who wants to use the EKS Cluster. 
+Essentially you can imagine that your infrastructure team is building APIs by building opinionated `vnet_and_subnets` and `aks` modules in different repository. And your team's Platform team building `cluster` module which makes use of these APIs. And top level `main.tf` file invoking `cluster` module, this can be written by your developer team member who wants to use the AKS Cluster. 
 
 As you can see in the [cluster module's main.tf](./cluster/main.tf) we are invoking `vnet_and_subnets` and `aks` modules, and you can specify the `source` to remote github repository where your source of the modules are, you can read about [module sources](https://developer.hashicorp.com/terraform/language/modules/sources) in the official terraform documentation.
 

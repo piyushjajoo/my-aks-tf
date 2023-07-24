@@ -55,7 +55,7 @@ We have a [sample.tfvars](./sample.tfvars) for reference, substitute values as p
 
 ## Execute terraform to create the infrastructure
 
-This section explains how to execute the terraform module [cluster](./cluster/README.md) to create vpc, subnets and eks cluster.
+This section explains how to execute the terraform module [cluster](./cluster/README.md) to create vpc, subnets and aks cluster.
 
 ### main.tf
 
@@ -236,7 +236,7 @@ No resources.
 1. Generate documentation by running `terraform-docs` command from the module directory. Now you can copy the documentation from stdout.
 
 ```shell
-cd ./modules/eks
+cd ./modules/aks
 terraform-docs markdown .
 ```
 
